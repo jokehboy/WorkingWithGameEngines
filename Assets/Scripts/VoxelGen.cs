@@ -31,13 +31,22 @@ public class VoxelGen : MonoBehaviour {
 
     public void Initialise()
     {
+        CreateTextureNameCoordDict();
+
+#if UNITY_EDITOR
+        DestroyImmediate(GetComponent<MeshFilter>().sharedMesh, true);
+        GetComponent<MeshFilter>().sharedMesh = new Mesh();
+        mesh = GetComponent<MeshFilter>().sharedMesh;
+#else
         mesh = GetComponent<MeshFilter>().mesh;
+#endif
+        numOfQuads = 0; 
         meshCollider = GetComponent<MeshCollider>();
         vertextList = new List<Vector3>();
         triIndexList = new List<int>();
         UVList = new List<Vector2>();
 
-        CreateTextureNameCoordDict();
+        
     }
 
    public void UpdateMesh()
@@ -55,7 +64,7 @@ public class VoxelGen : MonoBehaviour {
         
     }
 
-    void ClearPrevData()
+    public void ClearPrevData()
     {
         vertextList.Clear();
         triIndexList.Clear();

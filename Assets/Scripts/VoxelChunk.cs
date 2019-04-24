@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class VoxelChunk : MonoBehaviour
 {
     VoxelGen voxelGen;
-    int[,,] terrainArray;
+    public int[,,] terrainArray;
     int chunkSize = 16;
 
     public delegate void EventBlockChanged();
@@ -24,6 +25,11 @@ public class VoxelChunk : MonoBehaviour
         InitTerrain();
         CreateTerrain();
         voxelGen.UpdateMesh();
+    }
+
+    public void LoadChunk(string fileName)
+    {
+        throw new NotImplementedException();
     }
 
     void InitTerrain()
