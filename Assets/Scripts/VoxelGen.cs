@@ -31,11 +31,11 @@ public class VoxelGen : MonoBehaviour {
 
     public void Initialise()
     {
-        mesh = GetComponent<MeshFilter>().mesh;
+        //mesh = GetComponent<MeshFilter>().mesh;
         meshCollider = GetComponent<MeshCollider>();
-        vertextList = new List<Vector3>();
+        //vertextList = new List<Vector3>();
         triIndexList = new List<int>();
-        UVList = new List<Vector2>();
+        //UVList = new List<Vector2>();
 
         CreateTextureNameCoordDict();
     }
